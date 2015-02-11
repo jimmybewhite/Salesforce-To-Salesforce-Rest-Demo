@@ -1,0 +1,53 @@
+{
+    "properties": [
+        {
+            "modifiers": [
+                "STATIC"
+            ], 
+            "name": "runTheTrigger", 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 25, 
+                "line": 2
+            }, 
+            "type": "Boolean"
+        }
+    ], 
+    "externalReferences": [], 
+    "innerClasses": [], 
+    "interfaces": [], 
+    "constructors": [], 
+    "namespace": null, 
+    "name": "TriggerHelper", 
+    "tableDeclaration": {
+        "type": "TriggerHelper", 
+        "modifiers": [], 
+        "references": [], 
+        "location": {
+            "column": 27, 
+            "line": 1
+        }, 
+        "name": "TriggerHelper"
+    }, 
+    "key": "01pj0000002eHpRAAU", 
+    "variables": [], 
+    "id": "01pj0000002eHpRAAU", 
+    "methods": [
+        {
+            "modifiers": [
+                "STATIC"
+            ], 
+            "name": "runOnce", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 27, 
+                "line": 4
+            }, 
+            "returnType": "Boolean", 
+            "type": null
+        }
+    ]
+}

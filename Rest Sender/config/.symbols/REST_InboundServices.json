@@ -1,0 +1,36 @@
+{
+    "properties": [], 
+    "externalReferences": [], 
+    "innerClasses": [], 
+    "interfaces": [], 
+    "constructors": [
+        {
+            "modifiers": [], 
+            "name": "REST_InboundServices", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 9, 
+                "line": 2
+            }, 
+            "type": null
+        }
+    ], 
+    "namespace": null, 
+    "name": "REST_InboundServices", 
+    "tableDeclaration": {
+        "type": "REST_InboundServices", 
+        "modifiers": [], 
+        "references": [], 
+        "location": {
+            "column": 27, 
+            "line": 1
+        }, 
+        "name": "REST_InboundServices"
+    }, 
+    "key": "01pj0000002e19YAAQ", 
+    "variables": [], 
+    "id": "01pj0000002e19YAAQ", 
+    "methods": []
+}

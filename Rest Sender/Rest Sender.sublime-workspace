@@ -1,0 +1,880 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"External",
+				"External_Id__c"
+			],
+			[
+				"syncLe",
+				"syncLeadReturn"
+			],
+			[
+				"leadId",
+				"leadIdToExternalMap"
+			],
+			[
+				"deser",
+				"PUBLIC deserialize(String jsonString, system.Type apexType) 	Object"
+			],
+			[
+				"LeaseAna",
+				"LeaseAnalysisObject	[Custom Apex Class]"
+			],
+			[
+				"de",
+				"PUBLIC deserialize(String jsonString, system.Type apexType) 	Object"
+			],
+			[
+				"Leae",
+				"LeaseAnalysisObject	[Custom Apex Class]"
+			],
+			[
+				"Lease",
+				"Lease_Analysis__c"
+			],
+			[
+				"Leasea",
+				"LeaseAnalysisObject	[Custom Apex Class]"
+			],
+			[
+				"inlin",
+				"inline-block"
+			],
+			[
+				"get",
+				"PUBLIC getValue() 	String"
+			],
+			[
+				"ass",
+				"assignedToOptions"
+			],
+			[
+				"Select",
+				"SelectOption	[Standard Apex Class]"
+			],
+			[
+				"selected",
+				"selected"
+			],
+			[
+				"scean",
+				"scenarioIds"
+			],
+			[
+				"show",
+				"showHeader	(Boolean)"
+			],
+			[
+				"stl",
+				"styleClass	(String)"
+			],
+			[
+				"sty",
+				"styleClass	(String)"
+			],
+			[
+				"Defaul",
+				"Default_Unit_of_Measure__c"
+			],
+			[
+				"escap",
+				"escapeSpecialCharacters"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "src/classes/REST_OutboundServices.cls",
+			"settings":
+			{
+				"buffer_size": 6016,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "trigger LeadSyncTrigger on Lead (after insert, after update) {\n	//do not write a trigger like this! This is just an example.\n	if((system.isFuture())){//stop recursion\n		REST_OutboundServices.syncLeads(JSON.serialize(trigger.new));\n	}\n}",
+			"file": "src/triggers/LeadSyncTrigger.trigger",
+			"file_size": 263,
+			"file_write_time": 130680646309133970,
+			"settings":
+			{
+				"buffer_size": 235,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/classes/TriggerHelper.cls",
+			"settings":
+			{
+				"buffer_size": 257,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 81.0,
+		"selected_items":
+		[
+			[
+				"resource",
+				"MavensMate: Create Resource Bundle..."
+			],
+			[
+				"rei",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"de",
+				"MavensMate: Deploy Resource Bundle..."
+			],
+			[
+				"re",
+				"MavensMate: Create Resource Bundle..."
+			],
+			[
+				"resou",
+				"MavensMate: Create Resource Bundle..."
+			],
+			[
+				"dep",
+				"MavensMate: Deploy Resource Bundle..."
+			],
+			[
+				"dev",
+				"MavensMate: Deploy To Server..."
+			],
+			[
+				"deplo",
+				"MavensMate: Deploy Resource Bundle..."
+			],
+			[
+				"resour",
+				"MavensMate: Create Resource Bundle..."
+			],
+			[
+				"deo",
+				"MavensMate: Deploy Resource Bundle..."
+			],
+			[
+				"dpe",
+				"MavensMate: Deploy Resource Bundle..."
+			],
+			[
+				"",
+				"MavensMate: Deploy Resource Bundle..."
+			],
+			[
+				"res",
+				"MavensMate: Deploy Resource Bundle..."
+			],
+			[
+				"reso",
+				"MavensMate: Deploy Resource Bundle..."
+			],
+			[
+				"bundle",
+				"MavensMate: Create Resource Bundle..."
+			],
+			[
+				"create res",
+				"MavensMate: Create Resource Bundle..."
+			],
+			[
+				"mavnesmate: res",
+				"MavensMate: Create Resource Bundle..."
+			],
+			[
+				"create",
+				"MavensMate: Create Resource Bundle..."
+			],
+			[
+				"Package",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 480.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os; pr='Preferences.sublime-settings'; ip='ignored_packages'; n='Package Control'; s=sublime.load_settings(pr); ig=s.get(ip); ig.append(n); s.set(ip,ig); sublime.save_settings('Preferences.sublime-settings'); pf=n+'.sublime-package'; urllib.request.install_opener(urllib.request.build_opener(urllib.request.ProxyHandler())); by=urllib.request.urlopen('https://packagecontrol.io/'+pf.replace(' ','%20')).read(); open(os.path.join(sublime.installed_packages_path(),pf),'wb').write(by); ig.remove(n); s.set(ip,ig); sublime.save_settings(pr); print('Package Control: 3.0.0 upgrade successful!')",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/Jimmy/Documents/MavensMate/Rest Sender",
+		"/C/Users/Jimmy/Documents/MavensMate/Rest Sender/src",
+		"/C/Users/Jimmy/Documents/MavensMate/Rest Sender/src/classes"
+	],
+	"file_history":
+	[
+		"/C/Users/Jimmy/Documents/MavensMate/Rest Sender/src/classes/checkRecursive.cls",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/pages/LeaseAnalysis.page",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/Prologis - Lease.sublime-settings",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/pages/LeaseApproval_CreditQueue.page",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/pages/ngLeaseAnalysis.page",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/classes/LeaseApproval_CreditQueue.cls",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/classes/LeaseAnalysis.cls",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/classes/LeaseApprovalHelper.cls",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/classes/LeaseAnalysisHelper.cls",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/components/LeaseAnalysisCSS.component",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/components/LeaseAnalysisCSS.component-meta.xml",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/classes/LeaseAnalysis.cls-meta.xml",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/staticresources/ngLeaseAnalysis.resource",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/staticresources/ngLeaseAnalysis.resource-meta.xml",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/pages/ngLeaseAnalysis_copy.page",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/pages/ngLeaseAnalysis_aristides.page",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/classes/LeaseApproval_SendCreditApproval.cls",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/pages/LeaseApproval_SendNotification.page",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/pages/LeaseApproval_Notification.page",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/pages/logshowing.page",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/Prologis - Lease.sublime-project",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/resource-bundles/ngLeaseAnalysis_aristides.resource/app/views/modals/request-credit.html",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/resource-bundles/ngLeaseAnalysis_aristides.resource/app/LeaseAnalysisApp.js",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/classes/LeaseApproval_SendNotification.cls",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/components/LeaseAnalysis.component",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/resource-bundles/ngLeaseAnalysis.resource/app/LeaseAnalysisApp.js",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/resource-bundles/ngLeaseAnalysis.resource/app/views/modals/request-credit.html",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/staticresources/select2.resource",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/resource-bundles/ngLeaseAnalysis_Copy.resource/app/views/modals/request-credit.html",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/resource-bundles/ngLeaseAnalysis_Copy.resource/app/LeaseAnalysisApp.js",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/classes/ShowingQuickCreateExt.cls",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/pages/leaseAnalysis_angular.page",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/components/ObjectNotes.component",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/classes/FindDealExtension.cls",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/classes/DMLError.cls",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/classes/ObjectNotes.cls",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/components/ngForce.component",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/staticresources/ngLeaseAnalysis_Copy.resource",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/pages/BlockNewBTSScoresheet.page",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/pages/BlockNewBTSScoresheet.page-meta.xml",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/resource-bundles/ngLeaseAnalysis_Copy.resource/ngForce-master/bower.json",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/resource-bundles/ngLeaseAnalysis_Copy.resource/ngForce-master/lib/safeApply.js",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/resource-bundles/ngLeaseAnalysis_Copy.resource/ngForce-master/jsSrc/subModules/ngForce-sfrBackend.js",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/pages/LeaseAnalysis_Copy.page",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/classes/DatePicker.cls",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/resource-bundles/ngLeaseAnalysis.resource/app/views/rent.html",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/resource-bundles/ngLeaseAnalysis.resource/ngForce-master/Gruntfile.js",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/classes/U2O_Controller.cls",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/staticresources/js_webshim.resource",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/resource-bundles/ngLeaseAnalysis.resource/app/views/modals/notification-modal.html",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/classes/LeaseApproval_SendNotification.cls-meta.xml",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/components/importvisualstrap.component",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/classes/ngForceController.cls",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/components/column.component",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/components/navbar.component",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/staticresources/LeaseApprovalJS.resource",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/pages/LeaseApproval_SendCreditApproval.page",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/classes/LeaseApproval_EmailResponseHandler.cls",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/classes/NewOpportunityController_Test.cls",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/pages/NewOpportunity.page",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/triggers/AttachmentTrigger.trigger",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/classes/AssetTrigger_Test.cls",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/components/AreaText.component",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/components/alert.component",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/classes/ResultMessage.cls",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/classes/ObjectNotes.cls-meta.xml",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/components/InnerQuickCreate.component",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/components/InnerQuickCreate.component-meta.xml",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/pages/InlineOpportunitiesOnProperty.page-meta.xml",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/pages/InlineOpportunitiesOnProperty.page",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/classes/CountShowingOnUnitBatch.cls",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/classes/displayOpportunitiesOnPropertyController.cls",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/pages/AccountLeaseSummary.page",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/classes/LeaseAnalysis_v1.cls",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/components/row.component",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/components/LeaseAnalysis.component-meta.xml",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/resource-bundles/LeaseApprovalJS.resource/js/notification.js",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/pages/Units_for_Opportunity.page",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/components/OpportunityUnits.component",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/pages/OpportunityUnits.page",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/classes/OpportunityGuidelines.cls",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/pages/U2O_Page.page",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/components/LeaseAnalysisUnitSelection.component",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/triggers/UnitTrigger.trigger",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/pages/UnitOpportunity_Edit.page",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/classes/UOMCalculation.cls",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/resource-bundles/LeaseApprovalJS.resource/js/notification.js.txt",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/components/modal.component",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/triggers/MarketTrigger.trigger",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/components/AutoCompleteV2.component",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/pages/LeaseAnalysisDemo_TRASH.page",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/classes/LeaseAnalysisObject.cls",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/pages/Lease_Analysis_Commissions.page",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/pages/Lease_Analysis_Securities.page",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/pages/LeaseAnalysis_v1.page-meta.xml",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/classes/LeaseAnalysis_v1.cls-meta.xml",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/pages/LeaseAnalysis_Jimmy.page-meta.xml",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/pages/LeaseAnalysis_v1.page",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/pages/LeaseAnalysis_Jimmy.page",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/classes/VarKey.cls",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/classes/VarKey.cls-meta.xml",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/unpackaged/components/LeaseAnalysisUnitSelection.component",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/pages/Lease_Analysis_Incentives.page",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/components/importvisualstrap.component-meta.xml",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/pages/Lease_Analysis_Units.page",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/pages/Lease_Aanalysis_Rents.page",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/pages/Lease_analysis_rents_and_incentives.page",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/pages/Lease_Analysis_Tenant_Improvements.page",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/pages/Lease_Analysis_Expenses.page",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/pages/Lease_Analysis_Rent_Indexation.page",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/classes/OpportunitySearchBrokers.cls",
+		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/components/label.component",
+		"/C/Users/Jimmy/Documents/MavensMate/Scale - Full/src/classes/NightlyBatchProcessing.cls",
+		"/C/Users/Jimmy/Documents/MavensMate/Scale - Full/src/triggers/NewIdeaAlert.trigger",
+		"/C/Users/Jimmy/Documents/MavensMate/Scale - Full/src/classes/SendPOControllerTest.cls-meta.xml",
+		"/C/Users/Jimmy/Documents/MavensMate/Scale - Full/src/classes/AssignPricebookController.cls",
+		"/C/Users/Jimmy/Documents/MavensMate/Scale - Full/src/classes/MyScaleTests.cls-meta.xml",
+		"/C/Users/Jimmy/Documents/MavensMate/Scale - Full/src/classes/TestClass_Territory.cls-meta.xml",
+		"/C/Users/Jimmy/Documents/MavensMate/Scale - Full/src/classes/CaseTimelineEntry.cls",
+		"/C/Users/Jimmy/Documents/MavensMate/Scale - Full/src/classes/CaseNextStepsController.cls-meta.xml",
+		"/C/Users/Jimmy/Documents/MavensMate/Scale - Full/src/classes/SendPOControllerTest.cls",
+		"/C/Users/Jimmy/Documents/MavensMate/Scale - Full/src/triggers/chatter_answers_question_escalation_to_case_trigger.trigger-meta.xml",
+		"/C/Users/Jimmy/Documents/MavensMate/Scale - Full/src/classes/MyScaleTests.cls",
+		"/C/Users/Jimmy/Documents/MavensMate/Scale - Full/src/pages/CaseNextSteps.page-meta.xml",
+		"/C/Users/Jimmy/Documents/MavensMate/Scale - Full/src/classes/CaseNextStepsControllerTest.cls-meta.xml",
+		"/C/Users/Jimmy/Documents/MavensMate/Scale - Full/src/classes/TestClass_Territory.cls",
+		"/C/Users/Jimmy/Documents/MavensMate/Scale - Full/src/classes/CaseNextStepsController.cls",
+		"/C/Users/Jimmy/Documents/MavensMate/Scale - Full/src/triggers/chatter_answers_question_escalation_to_case_trigger.trigger"
+	],
+	"find":
+	{
+		"height": 41.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"C:\\Users\\Jimmy\\Documents\\MavensMate\\Prologis - Lease\\src",
+			"C:\\Users\\Jimmy\\Documents\\MavensMate\\Scale - Full"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"sendRequest",
+			"}",
+			"lead",
+			"leaseanalysisobject",
+			"<div class=\"arrowDiv\"></div>",
+			"arrowDiv",
+			"<th><div class=\"arrowDiv\"></div></th>",
+			"</th>",
+			"st-sort=",
+			"result",
+			"Rows('#",
+			"lRows('#",
+			"##",
+			"sRows(",
+			"lRows('",
+			"tbody>",
+			"committeeButton",
+			"LeaseApproval_CreditQueue",
+			"initApp",
+			"credit",
+			"CreditRequestModalController",
+			"locale",
+			"fileread",
+			"ngLeaseAnalysis",
+			"CreditRequestModalController",
+			"Environment",
+			"InputFile",
+			"input",
+			"calendar",
+			"CreditRequestModalController",
+			"credit",
+			".map",
+			"github.io",
+			"credit",
+			"/js",
+			"Environment",
+			"',\n",
+			"openDatePicker",
+			"CreditRequestModalController",
+			"$Resource.ngLeaseAnalysis",
+			"CreditRequestModalController",
+			"controller",
+			"CreditRequestModalController",
+			"primary",
+			"CreditRequestModalController",
+			"NotificationModalController",
+			"checkwidths",
+			"bindTypeAhead",
+			"c:row",
+			"/c:row",
+			"c:row",
+			"ngLeaseAnalysis",
+			"Analysis_Copy",
+			"initNotification",
+			"LeaseApproval_SendNotification",
+			"LeaseApproval",
+			"label",
+			"hideAlert",
+			"Select",
+			"this",
+			"insertAttRemote",
+			"saveAttachments",
+			"insertAttRemote",
+			"50px",
+			"h6",
+			"label",
+			"notification message",
+			"col-sm",
+			"sx",
+			"sm",
+			" selected=\"selected\"",
+			"replace(',','')",
+			"removeEmail",
+			"showalert",
+			"selectedEmails",
+			"append",
+			"emailFilter",
+			"#alertDiv",
+			"alertDiv",
+			"\\\"",
+			" display:none",
+			"rawAddressDiv",
+			"lenght",
+			"well",
+			"rawAddressDiv",
+			"cdn",
+			"off",
+			"meza",
+			"selectedProperties",
+			"addProperty",
+			"navigationTab",
+			"selected",
+			"ario\"></div>",
+			"addMessage",
+			"input-group",
+			"input-grou",
+			"removeEmail",
+			"50",
+			"<input type=\"textArea\" id=\"rawAddresses\"/>",
+			"id=\"rawAddressDiv\" class=\"",
+			"search-well",
+			"data.email",
+			"sforce",
+			"selectedProperties",
+			"property-filter",
+			"filter",
+			"leaseAnalysis",
+			"visualstrap",
+			"type=\"hidden\"",
+			"from Unit__",
+			"from Unit",
+			"unit",
+			"exceed",
+			"parent",
+			"closest",
+			"parent().parent().parent().find",
+			"jimmy",
+			"minimizeView",
+			"minmizeView",
+			"parent()",
+			"unitRow",
+			"N/A",
+			"a",
+			"A",
+			"apex:inputHidden styleClass",
+			"outputField",
+			"prop",
+			"parseFloat("
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "src/classes/REST_OutboundServices.cls",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6016,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								6016
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/MavensMate/sublime/lang/Apex.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1893.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/triggers/LeadSyncTrigger.trigger",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 235,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								210,
+								210
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/MavensMate/sublime/lang/Apex.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/classes/TriggerHelper.cls",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 257,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								206,
+								206
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/MavensMate/sublime/lang/Apex.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.MavensMate-OutputPanel":
+	{
+		"height": 257.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "Rest Sender.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"leaseanalysisobject",
+				"src\\classes\\LeaseAnalysisObject.cls"
+			],
+			[
+				"resultm",
+				"src\\classes\\ResultMessage.cls"
+			],
+			[
+				"leaseanalysisobj",
+				"src\\classes\\LeaseAnalysisObject.cls"
+			],
+			[
+				"leaseanalysish",
+				"src\\classes\\LeaseAnalysisHelper.cls"
+			],
+			[
+				"lease",
+				"src\\classes\\LeaseAnalysis.cls"
+			],
+			[
+				"leaseapproval",
+				"src\\classes\\LeaseApproval_CreditQueue.cls"
+			],
+			[
+				"leaseanalysis.cls",
+				"src\\classes\\LeaseAnalysis.cls"
+			],
+			[
+				"leaseapprval",
+				"src\\classes\\LeaseApprovalHelper.cls"
+			],
+			[
+				"ngle",
+				"src\\pages\\ngLeaseAnalysis.page"
+			],
+			[
+				"leaseapprovalhel",
+				"src\\classes\\LeaseApprovalHelper.cls"
+			],
+			[
+				"leasean",
+				"src\\classes\\LeaseAnalysis.cls"
+			],
+			[
+				"sendno",
+				"src\\pages\\LeaseApproval_SendNotification.page"
+			],
+			[
+				"send",
+				"src\\pages\\LeaseApproval_SendNotification.page"
+			],
+			[
+				"leaseanaly",
+				"src\\classes\\LeaseAnalysis.cls"
+			],
+			[
+				"notes",
+				"src\\components\\ObjectNotes.component"
+			],
+			[
+				"ngleae",
+				"src\\pages\\ngLeaseAnalysis_copy.page"
+			],
+			[
+				"nglease",
+				"src\\pages\\ngLeaseAnalysis_copy.page"
+			],
+			[
+				"_copy",
+				"src\\pages\\LeaseAnalysis_Copy.page"
+			],
+			[
+				"",
+				"Prologis - Lease.sublime-project"
+			],
+			[
+				"ngleaseana",
+				"src\\pages\\ngLeaseAnalysis.page"
+			],
+			[
+				"importv",
+				"src\\components\\importvisualstrap.component"
+			],
+			[
+				"leasepproval",
+				"src\\pages\\LeaseApproval_SendNotification.page"
+			],
+			[
+				"ngforce",
+				"src\\components\\ngForce.component"
+			],
+			[
+				"importvia",
+				"src\\components\\importvisualstrap.component"
+			],
+			[
+				"objec",
+				"src\\classes\\ObjectNotes.cls"
+			],
+			[
+				"note",
+				"src\\components\\ObjectNotes.component"
+			],
+			[
+				"import",
+				"src\\components\\importvisualstrap.component"
+			],
+			[
+				"result",
+				"src\\classes\\ResultMessage.cls"
+			],
+			[
+				"leaseanalysis.c",
+				"src\\components\\LeaseAnalysisCSS.component"
+			],
+			[
+				"leaseanalysis",
+				"src\\pages\\LeaseAnalysis.page"
+			],
+			[
+				"leaseana",
+				"src\\pages\\LeaseAnalysis.page"
+			],
+			[
+				"opportunityunits",
+				"src\\components\\OpportunityUnits.component"
+			],
+			[
+				"unitsfor",
+				"src\\pages\\Units_for_Opportunity.page"
+			],
+			[
+				"leasanlysisobj",
+				"src\\classes\\LeaseAnalysisObject.cls"
+			],
+			[
+				"leaseanalysis_",
+				"src\\pages\\LeaseAnalysisDemo_TRASH.page"
+			],
+			[
+				"importvi",
+				"src\\components\\importvisualstrap.component"
+			],
+			[
+				"leaseanalysishelp",
+				"src\\classes\\LeaseAnalysisHelper.cls"
+			],
+			[
+				"leasanalysishel",
+				"src\\classes\\LeaseAnalysisHelper.cls"
+			],
+			[
+				"object",
+				"src\\components\\ObjectNotes.component"
+			],
+			[
+				"lea",
+				"src\\classes\\LeaseAnalysis.cls"
+			],
+			[
+				"leasanalysishelper",
+				"src\\classes\\LeaseAnalysisHelper.cls"
+			],
+			[
+				"batchaccountcustomerstatus",
+				"src\\classes\\BatchAccountCustomerStatus.cls"
+			],
+			[
+				"nightly",
+				"src\\classes\\NightlyBatchProcessing.cls"
+			],
+			[
+				"orderm",
+				"src\\classes\\OrderMBX.cls"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"C:\\Users\\Jimmy\\Documents\\MavensMate\\Sunpower API Example\\Sunpower API Example.sublime-project"
+			],
+			[
+				"scale",
+				"C:\\Users\\Jimmy\\Documents\\MavensMate\\Scale - Full\\Scale - Full.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 301.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

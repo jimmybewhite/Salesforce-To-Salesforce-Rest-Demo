@@ -1,0 +1,36 @@
+{
+    "properties": [], 
+    "externalReferences": [], 
+    "innerClasses": [], 
+    "interfaces": [], 
+    "constructors": [
+        {
+            "modifiers": [], 
+            "name": "REST_OutboundServices", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 9, 
+                "line": 2
+            }, 
+            "type": null
+        }
+    ], 
+    "namespace": null, 
+    "name": "REST_OutboundServices", 
+    "tableDeclaration": {
+        "type": "REST_OutboundServices", 
+        "modifiers": [], 
+        "references": [], 
+        "location": {
+            "column": 27, 
+            "line": 1
+        }, 
+        "name": "REST_OutboundServices"
+    }, 
+    "key": "01pj0000002UFtCAAW", 
+    "variables": [], 
+    "id": "01pj0000002UFtCAAW", 
+    "methods": []
+}

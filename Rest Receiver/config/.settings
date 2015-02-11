@@ -1,0 +1,19 @@
+{
+    "username": "jimmy@rest2.demo", 
+    "project_name": "Rest Receiver", 
+    "org_url": "", 
+    "namespace": "", 
+    "metadata_container": "1dcj0000000bwmDAAQ", 
+    "environment": "developer", 
+    "workspace": "C:\\Users\\Jimmy\\Documents\\MavensMate", 
+    "id": "2AYIDL5SVPGC85M69ZHPM5CDJVHVQ9MU", 
+    "subscription": [
+        "ApexClass", 
+        "ApexComponent", 
+        "ApexPage", 
+        "ApexTrigger", 
+        "StaticResource", 
+        "CustomObject", 
+        "Profile"
+    ]
+}

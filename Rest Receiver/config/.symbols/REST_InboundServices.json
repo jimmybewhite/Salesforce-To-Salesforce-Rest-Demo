@@ -1,0 +1,189 @@
+{
+    "properties": [], 
+    "externalReferences": [], 
+    "innerClasses": [], 
+    "interfaces": [], 
+    "constructors": [], 
+    "namespace": null, 
+    "name": "REST_InboundServices", 
+    "tableDeclaration": {
+        "type": "REST_InboundServices", 
+        "modifiers": [], 
+        "references": [], 
+        "location": {
+            "column": 27, 
+            "line": 2
+        }, 
+        "name": "REST_InboundServices"
+    }, 
+    "key": "01pj0000002UJMnAAO", 
+    "variables": [
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 16, 
+                "line": 12
+            }, 
+            "name": "returnMap"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 10, 
+                "line": 13
+            }, 
+            "name": "leadJSON"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 14, 
+                "line": 14
+            }, 
+            "name": "leadsToUpsert"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 31, 
+                "line": 15
+            }, 
+            "name": "results"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 15, 
+                "line": 16
+            }, 
+            "name": "i"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 47, 
+                "line": 23
+            }, 
+            "name": "externalId"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 66, 
+                "line": 23
+            }, 
+            "name": "Status"
+        }, 
+        {
+            "type": "Lead", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 8, 
+                "line": 25
+            }, 
+            "name": "l"
+        }, 
+        {
+            "type": "Lead", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 39, 
+                "line": 31
+            }, 
+            "name": "l"
+        }
+    ], 
+    "id": "01pj0000002UJMnAAO", 
+    "methods": [
+        {
+            "modifiers": [
+                "STATIC"
+            ], 
+            "name": "ping", 
+            "parameters": [], 
+            "visibility": "GLOBAL", 
+            "references": [], 
+            "location": {
+                "column": 23, 
+                "line": 5
+            }, 
+            "returnType": "String", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "STATIC"
+            ], 
+            "name": "upsertLeads", 
+            "parameters": [], 
+            "visibility": "GLOBAL", 
+            "references": [], 
+            "location": {
+                "column": 29, 
+                "line": 11
+            }, 
+            "returnType": "LIST", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "STATIC"
+            ], 
+            "name": "updateLeadStatus", 
+            "parameters": [
+                {
+                    "type": "String", 
+                    "name": "externalId"
+                }, 
+                {
+                    "type": "String", 
+                    "name": "Status"
+                }
+            ], 
+            "visibility": "GLOBAL", 
+            "references": [], 
+            "location": {
+                "column": 23, 
+                "line": 23
+            }, 
+            "returnType": "String", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "STATIC"
+            ], 
+            "name": "updateLead", 
+            "parameters": [
+                {
+                    "type": "Lead", 
+                    "name": "l"
+                }
+            ], 
+            "visibility": "GLOBAL", 
+            "references": [], 
+            "location": {
+                "column": 23, 
+                "line": 31
+            }, 
+            "returnType": "String", 
+            "type": null
+        }
+    ]
+}

@@ -1,0 +1,632 @@
+{
+    "properties": [
+        {
+            "modifiers": [], 
+            "name": "username", 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 20, 
+                "line": 4
+            }, 
+            "type": "String"
+        }, 
+        {
+            "modifiers": [], 
+            "name": "password", 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 20, 
+                "line": 5
+            }, 
+            "type": "String"
+        }, 
+        {
+            "modifiers": [], 
+            "name": "sessionId", 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 20, 
+                "line": 8
+            }, 
+            "type": "String"
+        }, 
+        {
+            "modifiers": [], 
+            "name": "instanceURL", 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 20, 
+                "line": 9
+            }, 
+            "type": "String"
+        }
+    ], 
+    "externalReferences": [], 
+    "innerClasses": [], 
+    "interfaces": [], 
+    "constructors": [
+        {
+            "modifiers": [], 
+            "name": "REST_OutboundServices", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 12, 
+                "line": 11
+            }, 
+            "type": null
+        }
+    ], 
+    "namespace": null, 
+    "name": "REST_OutboundServices", 
+    "tableDeclaration": {
+        "type": "REST_OutboundServices", 
+        "modifiers": [], 
+        "references": [], 
+        "location": {
+            "column": 14, 
+            "line": 1
+        }, 
+        "name": "REST_OutboundServices"
+    }, 
+    "key": "01pj0000002e19iAAA", 
+    "variables": [
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 22, 
+                "line": 12
+            }, 
+            "name": "usernamePassword"
+        }, 
+        {
+            "type": "User", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 14, 
+                "line": 23
+            }, 
+            "name": "u"
+        }, 
+        {
+            "type": "Other_Org_Credentials__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 34, 
+                "line": 28
+            }, 
+            "name": "creds"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 35, 
+                "line": 32
+            }, 
+            "name": "username"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 52, 
+                "line": 32
+            }, 
+            "name": "password"
+        }, 
+        {
+            "type": "HttpRequest", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 21, 
+                "line": 35
+            }, 
+            "name": "request"
+        }, 
+        {
+            "type": "HttpResponse", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 22, 
+                "line": 55
+            }, 
+            "name": "res"
+        }, 
+        {
+            "type": "XmlNode", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 25, 
+                "line": 61
+            }, 
+            "name": "resultXML"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 45, 
+                "line": 70
+            }, 
+            "name": "method"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 60, 
+                "line": 70
+            }, 
+            "name": "methodType"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 79, 
+                "line": 70
+            }, 
+            "name": "body"
+        }, 
+        {
+            "type": "HttpRequest", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 21, 
+                "line": 71
+            }, 
+            "name": "req"
+        }, 
+        {
+            "type": "HttpResponse", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 22, 
+                "line": 73
+            }, 
+            "name": "res"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 16, 
+                "line": 74
+            }, 
+            "name": "restUrl"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 40, 
+                "line": 99
+            }, 
+            "name": "leadList"
+        }, 
+        {
+            "type": "HttpResponse", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 22, 
+                "line": 100
+            }, 
+            "name": "res"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 43, 
+                "line": 104
+            }, 
+            "name": "externalId"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 62, 
+                "line": 104
+            }, 
+            "name": "status"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 14, 
+                "line": 105
+            }, 
+            "name": "body"
+        }, 
+        {
+            "type": "HttpResponse", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 20, 
+                "line": 107
+            }, 
+            "name": "res"
+        }, 
+        {
+            "type": "Lead", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 35, 
+                "line": 111
+            }, 
+            "name": "l"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 14, 
+                "line": 112
+            }, 
+            "name": "body"
+        }, 
+        {
+            "type": "HttpResponse", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 20, 
+                "line": 113
+            }, 
+            "name": "res"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 49, 
+                "line": 123
+            }, 
+            "name": "toClean"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 20, 
+                "line": 124
+            }, 
+            "name": "returnList"
+        }, 
+        {
+            "type": "Lead", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 18, 
+                "line": 125
+            }, 
+            "name": "l"
+        }, 
+        {
+            "type": "Lead", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 29, 
+                "line": 131
+            }, 
+            "name": "l"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 46, 
+                "line": 147
+            }, 
+            "name": "idMap"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 20, 
+                "line": 148
+            }, 
+            "name": "toSync"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 20, 
+                "line": 149
+            }, 
+            "name": "s"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 26, 
+                "line": 150
+            }, 
+            "name": "ids"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 41, 
+                "line": 118
+            }, 
+            "name": "leadJSON"
+        }, 
+        {
+            "type": "REST_OutboundServices", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 31, 
+                "line": 119
+            }, 
+            "name": "ros"
+        }
+    ], 
+    "id": "01pj0000002e19iAAA", 
+    "methods": [
+        {
+            "modifiers": [], 
+            "name": "getCredentialsFromUser", 
+            "parameters": [], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 27, 
+                "line": 22
+            }, 
+            "returnType": "LIST", 
+            "type": null
+        }, 
+        {
+            "modifiers": [], 
+            "name": "getCredentialsFromCustomSetting", 
+            "parameters": [], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 27, 
+                "line": 27
+            }, 
+            "returnType": "LIST", 
+            "type": null
+        }, 
+        {
+            "modifiers": [], 
+            "name": "authorize", 
+            "parameters": [
+                {
+                    "type": "String", 
+                    "name": "username"
+                }, 
+                {
+                    "type": "String", 
+                    "name": "password"
+                }
+            ], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 18, 
+                "line": 32
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [], 
+            "name": "sendRequest", 
+            "parameters": [
+                {
+                    "type": "String", 
+                    "name": "method"
+                }, 
+                {
+                    "type": "String", 
+                    "name": "methodType"
+                }, 
+                {
+                    "type": "String", 
+                    "name": "body"
+                }
+            ], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 26, 
+                "line": 70
+            }, 
+            "returnType": "HttpResponse", 
+            "type": null
+        }, 
+        {
+            "modifiers": [], 
+            "name": "ping", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 19, 
+                "line": 94
+            }, 
+            "returnType": "String", 
+            "type": null
+        }, 
+        {
+            "modifiers": [], 
+            "name": "upsertLeads", 
+            "parameters": [
+                {
+                    "type": "LIST", 
+                    "name": "leadList"
+                }
+            ], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 99
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [], 
+            "name": "updateLeadStatus", 
+            "parameters": [
+                {
+                    "type": "String", 
+                    "name": "externalId"
+                }, 
+                {
+                    "type": "String", 
+                    "name": "status"
+                }
+            ], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 19, 
+                "line": 104
+            }, 
+            "returnType": "String", 
+            "type": null
+        }, 
+        {
+            "modifiers": [], 
+            "name": "updateLead", 
+            "parameters": [
+                {
+                    "type": "Lead", 
+                    "name": "l"
+                }
+            ], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 19, 
+                "line": 111
+            }, 
+            "returnType": "String", 
+            "type": null
+        }, 
+        {
+            "modifiers": [], 
+            "name": "cleanLeadList", 
+            "parameters": [
+                {
+                    "type": "LIST", 
+                    "name": "toClean"
+                }
+            ], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 123
+            }, 
+            "returnType": "LIST", 
+            "type": null
+        }, 
+        {
+            "modifiers": [], 
+            "name": "clone", 
+            "parameters": [
+                {
+                    "type": "Lead", 
+                    "name": "l"
+                }
+            ], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 18, 
+                "line": 131
+            }, 
+            "returnType": "Lead", 
+            "type": null
+        }, 
+        {
+            "modifiers": [], 
+            "name": "syncLeadReturn", 
+            "parameters": [
+                {
+                    "type": "LIST", 
+                    "name": "idMap"
+                }
+            ], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 18, 
+                "line": 147
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "STATIC"
+            ], 
+            "name": "syncLeads", 
+            "parameters": [
+                {
+                    "type": "String", 
+                    "name": "leadJSON"
+                }
+            ], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 118
+            }, 
+            "returnType": "void", 
+            "type": null
+        }
+    ]
+}
