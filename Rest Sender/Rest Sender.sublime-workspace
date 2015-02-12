@@ -88,29 +88,21 @@
 	"buffers":
 	[
 		{
+			"contents": "public class REST_OutboundServices{\n\n    //for authorization\n    private String username;\n    private String password;\n\n    //for after authorization\n    private String sessionId;\n    private String instanceURL;\n\n    public REST_OutboundServices(){\n        List<String> usernamePassword = getCredentialsFromUser();\n        if(usernamePassword[0]==null||usernamePassword[1]==null){//user does not have paramteres set, use custom setting\n            usernamePassword = getCredentialsFromCustomSetting();\n        }\n        userName = usernamePassword[1];\n        password = usernamePassword[0];\n        \n    }\n\n\n    private  List<String> getCredentialsFromUser(){\n        User u = [Select Other_Org_Password__c, Other_Org_UserName__c from User where ID = :userInfo.getUserId()];\n        return new List<String>{u.Other_Org_Password__c, u.Other_Org_UserName__c};\n    }\n\n    private  List<String> getCredentialsFromCustomSetting(){\n        Other_Org_Credentials__c creds = Other_Org_Credentials__c.getOrgDefaults();\n        return new List<String>{creds.Other_Org_Password__c, creds.Other_Org_Username__c};\n    }\n\n    private void authorize(String username, String password){\n        //returns List<String>{instance url, sessionid}\n        \n        HttpRequest request = new HttpRequest();\n        request.setTimeout(10000);\n        request.setEndpoint('https://login.salesforce.com/services/Soap/u/22.0');\n        request.setMethod('POST');\n        request.setHeader('Content-Type', 'text/xml;charset=UTF-8');\n        request.setHeader('SOAPAction', '\"\"');\n        request.setBody(\n                '<Envelope xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\">'+\n                    '<Header/>'+\n                    '<Body>'+\n                        '<login xmlns=\"urn:partner.soap.sforce.com\">'+\n                            '<username>' +\n                                username +\n                            '</username>'+\n                            '<password>' +\n                                password +\n                            '</password>'+\n                        '</login>'+\n                    '</Body>'+\n                '</Envelope>');\n        HttpResponse res = new Http().send(request);\n        \n        if(res.getStatusCode()!=200){\n            system.debug('Bad request: ' + res.getStatus());\n        }\n        else{\n            Dom.XmlNode resultXML = (res.getBodyDocument().getRootElement()\n              .getChildElement('Body','http://schemas.xmlsoap.org/soap/envelope/')\n              .getChildElement('loginResponse','urn:partner.soap.sforce.com')\n              .getChildElement('result','urn:partner.soap.sforce.com'));\n            instanceURL = resultXML.getChildElement('serverUrl','urn:partner.soap.sforce.com').getText().split('/services')[0];\n            sessionId = resultXML.getChildElement('sessionId','urn:partner.soap.sforce.com').getText();\n        }\n    }\n\n    private HTTPResponse sendRequest(String method, String methodType, String body){\n        HttpRequest req = new HttpRequest();\n        req.setTimeout(100000);\n        HttpResponse res = new HttpResponse();\n        String restUrl = ('/services/apexrest/InboundServices?'+method);\n        if(sessionId==null){//no session yet\n            authorize(username, password);\n        }\n        req.setHeader('Content-Type','application/json');\n        req.setHeader('Authorization', 'OAuth ' + sessionId);\n        req.setEndpoint(instanceURL + restUrl);\n        req.setMethod(methodType);\n        if(body!=null){\n            req.setBody(body);\n        }\n        res = new Http().send(req);\n        if(res.getStatusCode()==440){//session timed out\n            authorize(username, password);\n            res = new Http().send(req);\n        }\n        return res;\n\n    }\n\n    public String ping(){\n        return sendRequest('ping','GET',null).getBody();\n    }\n\n\n    public void upsertLeads(List<Lead> leadList){\n        HTTPResponse res = sendRequest('upsertLeads','POST', JSON.serialize(cleanLeadList(leadList))); \n        syncLeadReturn((List<String>)JSON.deserialize(res.getBody(), List<String>.class));\n    }\n\n    public String updateLeadStatus(String externalId, String status){\n      String body = '{\"externalId\":\"'+externalId+'\",\"status\":\"'+status+'\"}';\n      system.debug(body);\n      HttpResponse res = sendRequest('updateLeadStatus','PUT', body);\n      return res.getBody();\n    }\n\n    public String updateLead(Lead l){\n      String body = '{\"l\":'+JSON.serialize(l)+'}';\n      HttpResponse res = sendRequest('updateLead','PUT', body);\n      return res.getBody();\n    }\n\n    @future (callout=true)\n    public static void syncLeads(String leadJSON){\n        REST_OutboundServices ros = new REST_OutboundServices();\n        ros.upsertLeads((List<Lead>)JSON.deserialize(leadJSON, List<Lead>.class));\n    }\n\n    private List<Lead> cleanLeadList(List<Lead> toClean){\n        List<Lead> returnList = new List<Lead>();\n        for(Lead l : toClean){\n            returnList.add(l.clone()\n\n        }\n        return returnList;//leads with the id moved to the external field\n    }\n\n    private Lead clone(Lead l){\n        return new Lead(\n            //here you decide which fields you want to keep synced.\n            //the OOB \"clone\" method doesn't work well for cross-org syncing.\n            //it includes fields like \"isconverted\" and \"ownerId\" which will fail \n            //because they are not writeable\n            LastName = l.LastName,\n            FirstName = l.FirstName,\n            Email = l.Email,\n            External_Id__c = l.Id,\n            Phone = l.Phone,\n            Company = l.Company,\n            Status = l.Status\n        );\n    }\n\n    private void syncLeadReturn(List<String> idMap){\n        List<Lead> toSync = new List<Lead>();\n        for(String s : idMap){\n            List<String> ids = s.split(':');\n            toSync.add(new Lead(Id = ids[0], External_Id__c = ids[1]));\n        }\n        update toSync;\n    }\n}",
 			"file": "src/classes/REST_OutboundServices.cls",
+			"file_size": 5929,
+			"file_write_time": 130681752965677921,
 			"settings":
 			{
-				"buffer_size": 6016,
+				"buffer_size": 5929,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "trigger LeadSyncTrigger on Lead (after insert, after update) {\n	//do not write a trigger like this! This is just an example.\n	if((system.isFuture())){//stop recursion\n		REST_OutboundServices.syncLeads(JSON.serialize(trigger.new));\n	}\n}",
 			"file": "src/triggers/LeadSyncTrigger.trigger",
-			"file_size": 263,
-			"file_write_time": 130680646309133970,
 			"settings":
 			{
-				"buffer_size": 235,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/classes/TriggerHelper.cls",
-			"settings":
-			{
-				"buffer_size": 257,
+				"buffer_size": 236,
 				"line_ending": "Unix"
 			}
 		}
@@ -226,6 +218,7 @@
 	],
 	"file_history":
 	[
+		"/C/Users/Jimmy/Documents/MavensMate/Rest Sender/src/classes/TriggerHelper.cls",
 		"/C/Users/Jimmy/Documents/MavensMate/Rest Sender/src/classes/checkRecursive.cls",
 		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/src/pages/LeaseAnalysis.page",
 		"/C/Users/Jimmy/Documents/MavensMate/Prologis - Lease/Prologis - Lease.sublime-settings",
@@ -352,8 +345,7 @@
 		"/C/Users/Jimmy/Documents/MavensMate/Scale - Full/src/pages/CaseNextSteps.page-meta.xml",
 		"/C/Users/Jimmy/Documents/MavensMate/Scale - Full/src/classes/CaseNextStepsControllerTest.cls-meta.xml",
 		"/C/Users/Jimmy/Documents/MavensMate/Scale - Full/src/classes/TestClass_Territory.cls",
-		"/C/Users/Jimmy/Documents/MavensMate/Scale - Full/src/classes/CaseNextStepsController.cls",
-		"/C/Users/Jimmy/Documents/MavensMate/Scale - Full/src/triggers/chatter_answers_question_escalation_to_case_trigger.trigger"
+		"/C/Users/Jimmy/Documents/MavensMate/Scale - Full/src/classes/CaseNextStepsController.cls"
 	],
 	"find":
 	{
@@ -527,15 +519,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6016,
+						"buffer_size": 5929,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								6016
+								4561,
+								4563
 							]
 						],
 						"settings":
@@ -545,7 +537,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1893.0,
+						"translation.y": 1552.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -557,15 +549,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 235,
+						"buffer_size": 236,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								210,
-								210
+								236,
+								236
 							]
 						],
 						"settings":
@@ -577,35 +569,6 @@
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "src/classes/TriggerHelper.cls",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 257,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								206,
-								206
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/MavensMate/sublime/lang/Apex.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -644,7 +607,7 @@
 	"menu_visible": true,
 	"output.MavensMate-OutputPanel":
 	{
-		"height": 257.0
+		"height": 130.0
 	},
 	"output.find_results":
 	{

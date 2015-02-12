@@ -102,9 +102,9 @@ public class REST_OutboundServices{
     }
 
     public String updateLeadStatus(String externalId, String status){
-      String body = '{"externalId":"'+externalId+'","status":'+status+'}';
+      String body = '{"externalId":"'+externalId+'","status":"'+status+'"}';
       system.debug(body);
-      HttpResponse res = sendRequest('updateLead','PUT', body);
+      HttpResponse res = sendRequest('updateLeadStatus','PUT', body);
       return res.getBody();
     }
 
@@ -125,23 +125,20 @@ public class REST_OutboundServices{
         for(Lead l : toClean){
             returnList.add(clone(l));
         }
-        return returnList;//leads with the id moved to the external field
+        return returnList;//leads with the id moved to the external field and nonwriteable fields removed
     }
 
     private Lead clone(Lead l){
-        return new Lead(
-            //here you decide which fields you want to keep synced.
-            //the OOB "clone" method doesn't work well for cross-org syncing.
-            //it includes fields like "isconverted" and "ownerId" which will fail 
-            //because they are not writeable
-            LastName = l.LastName,
-            FirstName = l.FirstName,
-            Email = l.Email,
-            External_Id__c = l.Id,
-            Phone = l.Phone,
-            Company = l.Company,
-            Status = l.Status
-        );
+        //if you use the "Clone" method, below is a way to remove the unwriteable fields from the object before sending it over
+        String jsonStr = JSON.serialize(l);
+        Map<String, object> testObj = (Map<String, object>)JSON.deserializeUntyped(jsonStr);
+        testObj.remove('OwnerId');//not writeable
+        testObj.remove('IsConverted');//not writeable
+        testObj.put('External_Id__c', testObj.get('Id'));
+        testObj.remove('Id');//
+        Lead returnLead = (Lead)(JSON.deserialize(JSON.serialize(testObj),Lead.class));
+
+        return returnLead;
     }
 
     private void syncLeadReturn(List<String> idMap){
